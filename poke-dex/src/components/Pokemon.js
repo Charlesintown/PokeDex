@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 
 const Pokemon = (props) => {
 
+    const[pokeurl, setpokeurl] = useState("");
+
     const pokemonIDGenerator = (pokemon) => {
         if (pokemon.url.length < 37) {
             return pokemon.url.slice(pokemon.url.length - 3, pokemon.url.length).split('/');
@@ -11,16 +13,20 @@ const Pokemon = (props) => {
         }
     };
 
+
+
     useEffect(() => {
 
     }, []);
+
 
     return (
         <>
             <ul>
                 {props.allPokemons.map(pokemon => {
                     return (
-                        <li key={pokemonIDGenerator(pokemon)}>{pokemon.name} id: {pokemonIDGenerator(pokemon)}</li>
+                        <li key={pokemonIDGenerator(pokemon)}>{pokemon.name} id: {pokemonIDGenerator(pokemon)}
+                        </li>
                     )
                 })}
             </ul>

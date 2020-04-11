@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { Button } from 'react-bootstrap';
+import PokemonsData from './PokemonsData';
 
 const Pokemon = (props) => {
-
-    const[pokeurl, setpokeurl] = useState("");
 
     const pokemonIDGenerator = (pokemon) => {
         if (pokemon.url.length < 37) {
@@ -13,19 +11,19 @@ const Pokemon = (props) => {
         }
     };
 
-
-
     useEffect(() => {
 
-    }, []);
+    }, [])
 
 
     return (
         <>
-            <ul>
+            <ul className={"poksy-list"}>
                 {props.allPokemons.map(pokemon => {
                     return (
-                        <li key={pokemonIDGenerator(pokemon)}>{pokemon.name} id: {pokemonIDGenerator(pokemon)}
+                        <li key={pokemonIDGenerator(pokemon)}>
+                            {pokemon.name} id: {pokemonIDGenerator(pokemon)}
+                            <PokemonsData pokeURL={pokemon.url} />
                         </li>
                     )
                 })}

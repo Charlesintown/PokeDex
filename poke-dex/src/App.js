@@ -11,9 +11,10 @@ function App() {
     const[currentPage, setCurrentPage] = useState(1);
     const[pokemonsPerPage, setPokemonsPerPage] = useState(25);
     const[activePage, setActivePage] = useState(1);
+    const[pokesURL, setPokesURL] = useState("");
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=151`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=400`)
             .then(res => {
                 console.log(res.data.results);
                 setAllPokemons(res.data.results);

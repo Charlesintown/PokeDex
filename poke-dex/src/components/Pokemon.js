@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Button } from 'react-bootstrap';
+import PokemonsData from './PokemonsData';
 
 const Pokemon = (props) => {
 
@@ -13,14 +13,18 @@ const Pokemon = (props) => {
 
     useEffect(() => {
 
-    }, []);
+    }, [])
+
 
     return (
         <>
-            <ul>
+            <ul className={"poksy-list"}>
                 {props.allPokemons.map(pokemon => {
                     return (
-                        <li key={pokemonIDGenerator(pokemon)}>{pokemon.name} id: {pokemonIDGenerator(pokemon)}</li>
+                        <li key={pokemonIDGenerator(pokemon)}>
+                            {pokemon.name} id: {pokemonIDGenerator(pokemon)}
+                            <PokemonsData pokeURL={pokemon.url} />
+                        </li>
                     )
                 })}
             </ul>

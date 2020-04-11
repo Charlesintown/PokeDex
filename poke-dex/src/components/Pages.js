@@ -1,37 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import { Pagination } from 'react-bootstrap';
+// import { Pagination } from 'react-bootstrap';
+import Pagination from "react-js-pagination";
+
+
 
 const Pages = (props) => {
-    let pagesFullOfPokemon = [];
-    const numberOfPages =  Math.ceil(props.allPokemons / props.pokemonsPerPage);
-
-
-    for (let number = 1; number <= numberOfPages; number++) {
-        pagesFullOfPokemon.push(
-            <Pagination.Item onClick={() => props.showPokemons(number)} key={number} active={number === props.activePage}>
-                {number}
-            </Pagination.Item>,
-        );
-    }
-
-    const makeSomePages = () => {
-        if(numberOfPages > 10) {
-            return (
-                <div>
-                    <Pagination>
-                        <Pagination.First/>
-                        {pagesFullOfPokemon}
-                        <Pagination.Last/>
-                    </Pagination>
-                </div>
-            )
-        }
-
-    };
 
     return (
         <>
-            {makeSomePages()}
+            <div>
+                <Pagination
+                    activePage={props.activePage}
+                    itemsCountPerPage={props.pokemonsPerPage}
+                    totalItemsCount={props.allPokemons.length}
+                    pageRangeDisplayed={10}
+                    onChange={props.showPokemons}
+                    prevPageText={"Prev"}
+                    nextPageText={"Next"}
+                    firstPageText={"First"}
+                    lastPageText={"Last"}
+                />
+            </div>
+
         </>
     )
 };

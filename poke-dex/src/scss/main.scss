@@ -1,2 +1,16 @@
 @import './settings/reset';
 @import './settings/fonts';
+
+.pagination {
+  li {
+    width: 3rem;
+    a {
+
+    }
+  }
+}
+
+.poksy-list {
+  display: flex;
+  flex-wrap: wrap;
+}

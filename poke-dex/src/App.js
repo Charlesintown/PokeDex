@@ -11,19 +11,25 @@ function App() {
     const[currentPage, setCurrentPage] = useState(1);
     const[pokemonsPerPage, setPokemonsPerPage] = useState(25);
     const[activePage, setActivePage] = useState(1);
-    const[pokesURL, setPokesURL] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
-    const[test, setTest] = useState(false);
+    const[pokeAPI, setPokeAPI] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
+    const[filtersLoad, setFiltersLoad] = useState(false);
+    const[filteredPokemons, setFiltersPokemons] = useState([])
 
     useEffect(() => {
-        axios.get(pokesURL)
+        axios.get(pokeAPI)
             .then(res => {
+                if(filtersLoad === false) {
                     console.log(res.data.results);
                     setAllPokemons(res.data.results);
+                } else {
+                    console.log(res.data.pokemon);
+                    setFiltersPokemons(res.data.pokemon)
+                }
             })
             .catch(err => {
                 console.log(err);
             });
-    }, []);
+    }, [filtersLoad]);
 
 
     const indexOfLast = currentPage * pokemonsPerPage;
@@ -35,17 +41,22 @@ function App() {
         setActivePage(prevState => pageNumber);
     };
 
+    const fire = () => {
+        setPokeAPI(`https://pokeapi.co/api/v2/type/10/`)
+        setFiltersLoad(true)
+    };
 
-      return (
-          <>
-            <Navbar/>
-            <FiltersBar />
-            <Pokemon allPokemons={currentPokemons} test={test}/>
-            <Pages
-                allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage}
-                showPokemons={showCurrentPokemons} activePage={activePage}/>
-          </>
-      );
+
+        return (
+            <>
+                <Navbar/>
+                <FiltersBar fire={fire}/>
+                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={filteredPokemons}/>
+                <Pages
+                    allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
+                    showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>
+            </>
+        );
 
 
 }

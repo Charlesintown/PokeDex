@@ -23,6 +23,7 @@ const Pages = (props) => {
 
         </>
     )
+
 };
 
 export default Pages;

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import {Container} from "react-bootstrap";
 
 const FiltersBar = (props) => {
 
@@ -15,11 +16,14 @@ const FiltersBar = (props) => {
 
     return (
         <>
-            <div>
-                <div>ogień</div>
-                <div>poison</div>
-                <div>woda</div>
-            </div>
+            <Container>
+                <div style={{display: "flex", justifyContent: "space-around"}}>
+                    <button onClick={props.fire} >ogień</button>
+                    <div>poison</div>
+                    <div>woda</div>
+                </div>
+            </Container>
+
         </>
     )
 };

@@ -35,21 +35,53 @@ const Pokemon = (props) => {
         )
     }
 
+    const test = (pokemonList) => {
+        return (
+            <div className={"pokemon-list"}>
+                {pokemonList.map(pokemon => {
+                    return (
+                        <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon.pokemon)}>
+                            <PokemonImage pokeURL={pokemon.pokemon.url}/>
+                            <Card.Body>
+                                <Card.Title>
+                                    {pokemon.pokemon.name} #{pokemonIDGenerator(pokemon.pokemon)}
+                                </Card.Title>
+                            </Card.Body>
+                            <PokemonsData pokeURL={pokemon.pokemon.url} />
+                        </Card>
+                    )
+                })}
+            </div>
+        )
+    };
+
 
 
     useEffect(() => {
 
     }, [])
 
+    if(props.filterLoad === false) {
+        return (
+            <>
+                <Container>
+                    {showPokemonCards(props.allPokemons)}
+                </Container>
 
-    return (
-        <>
-            <Container>
-                {showPokemonCards(props.allPokemons)}
-            </Container>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Container>
+                    {test(props.filteredPokemons)}
+                </Container>
 
-        </>
-    )
+            </>
+        )
+    }
+
+
 };
 
 export default Pokemon;

@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PokemonsData from './PokemonsData';
+import {Card, Col, Row, Container, CardImg} from 'react-bootstrap';
+import PokemonImage from "./PokemonImage";
 
 const Pokemon = (props) => {
+
 
     const pokemonIDGenerator = (pokemon) => {
         if (pokemon.url.length < 37) {
@@ -11,6 +14,29 @@ const Pokemon = (props) => {
         }
     };
 
+    const showPokemonCards = (pokemonList) => {
+
+        return (
+            <div className={"pokemon-list"}>
+                {pokemonList.map(pokemon => {
+                    return (
+                        <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon)}>
+                            <PokemonImage pokeURL={pokemon.url}/>
+                            <Card.Body>
+                                <Card.Title>
+                                    {pokemon.name} #{pokemonIDGenerator(pokemon)}
+                                </Card.Title>
+                            </Card.Body>
+                            <PokemonsData pokeURL={pokemon.url} />
+                        </Card>
+                    )
+                })}
+            </div>
+        )
+    }
+
+
+
     useEffect(() => {
 
     }, [])
@@ -18,16 +44,10 @@ const Pokemon = (props) => {
 
     return (
         <>
-            <ul className={"poksy-list"}>
-                {props.allPokemons.map(pokemon => {
-                    return (
-                        <li key={pokemonIDGenerator(pokemon)}>
-                            {pokemon.name} id: {pokemonIDGenerator(pokemon)}
-                            <PokemonsData pokeURL={pokemon.url} />
-                        </li>
-                    )
-                })}
-            </ul>
+            <Container>
+                {showPokemonCards(props.allPokemons)}
+            </Container>
+
         </>
     )
 };

@@ -11,18 +11,20 @@ function App() {
     const[currentPage, setCurrentPage] = useState(1);
     const[pokemonsPerPage, setPokemonsPerPage] = useState(25);
     const[activePage, setActivePage] = useState(1);
-    const[pokesURL, setPokesURL] = useState("");
+    const[pokesURL, setPokesURL] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
+    const[test, setTest] = useState(false);
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=400`)
+        axios.get(pokesURL)
             .then(res => {
-                console.log(res.data.results);
-                setAllPokemons(res.data.results);
+                    console.log(res.data.results);
+                    setAllPokemons(res.data.results);
             })
             .catch(err => {
                 console.log(err);
             });
     }, []);
+
 
     const indexOfLast = currentPage * pokemonsPerPage;
     const indexOfFirst = indexOfLast - pokemonsPerPage;
@@ -33,11 +35,12 @@ function App() {
         setActivePage(prevState => pageNumber);
     };
 
+
       return (
           <>
             <Navbar/>
-            <FiltersBar/>
-            <Pokemon allPokemons={currentPokemons}/>
+            <FiltersBar />
+            <Pokemon allPokemons={currentPokemons} test={test}/>
             <Pages
                 allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage}
                 showPokemons={showCurrentPokemons} activePage={activePage}/>

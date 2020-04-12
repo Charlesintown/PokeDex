@@ -1,7 +1,17 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
-const FiltersBar = () => {
+const FiltersBar = (props) => {
 
+    const [filteredPokemons, setFilteredPokemons] = useState([]);
+
+
+
+
+
+    useEffect(() => {
+
+    }, [])
 
     return (
         <>

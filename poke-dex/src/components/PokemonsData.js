@@ -1,24 +1,30 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Card, Col, Row, Container, CardImg} from 'react-bootstrap';
+
 
 const PokemonsData = (props) => {
 
-    const [pokeimg, setPokeimg] = useState(null);
-    const [pokeType, setPokeType] =useState(null)
+    const [pokemonType, setPokemonType] = useState(null);
+    const [pokemonType2, setPokemonType2] = useState(null);
 
     useEffect(() => {
         axios.get(props.pokeURL)
             .then(res => {
-                console.log(res.data.types);
-                setPokeimg(res.data.sprites.front_default)
-                setPokeType(res.data.types[0].type.name)
+                console.log(res.data);
+                setPokemonType(res.data.types[0].type.name)
+                if(res.data.types.length > 1) {
+                    setPokemonType2(res.data.types[1].type.name)
+                }
+
             })
     }, [])
 
+
     return (
         <>
-            <h1>{pokeType}</h1>
-            <img src={pokeimg} />
+            <p className={"pokemon-type-1"}>{pokemonType}</p>
+            <p className={"pokemon-type-2"}>{pokemonType2}</p>
         </>
     )
 };

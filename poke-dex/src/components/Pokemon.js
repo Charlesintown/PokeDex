@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PokemonsData from './PokemonsData';
 import {Card, Col, Row, Container, CardImg} from 'react-bootstrap';
 import PokemonImage from "./PokemonImage";
+import axios from "axios";
 
 const Pokemon = (props) => {
 
@@ -17,24 +18,44 @@ const Pokemon = (props) => {
         }
     };
 
+    const hide = () => {
+        const pokes = document.querySelectorAll(".card-title");
+        const inp = document.querySelector("#form");
+        for(const el of pokes) {
+            if(!(el.innerText).toLowerCase().includes((inp.value).toLowerCase()))
+            el.parentElement.parentElement.style.display = "none";
+
+        }
+        inp.value = "";
+    };
+
+    const clicked = (e) => {
+        e.preventDefault();
+        props.pages(251);
+        setTimeout(hide, 1500);
+    };
+
+
     const showPokemonCards = (pokemonList) => {
 
         return (
-            <div className={"pokemon-list"}>
-                {pokemonList.map(pokemon => {
-                    return (
-                        <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon)}>
-                            <PokemonImage pokeURL={pokemon.url}/>
-                            <Card.Body>
-                                <Card.Title>
-                                    {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
-                                </Card.Title>
-                            </Card.Body>
-                            <PokemonsData pokeURL={pokemon.url} />
-                        </Card>
-                    )
-                })}
-            </div>
+            <>
+                <div className={"pokemon-list"}>
+                    {pokemonList.map(pokemon => {
+                        return (
+                            <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon)}>
+                                <PokemonImage pokeURL={pokemon.url}/>
+                                <Card.Body>
+                                    <Card.Title>
+                                        {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
+                                    </Card.Title>
+                                </Card.Body>
+                                <PokemonsData pokeURL={pokemon.url} />
+                            </Card>
+                        )
+                    })}
+                </div>
+            </>
         )
     }
 
@@ -65,6 +86,10 @@ const Pokemon = (props) => {
     if(props.filterLoad === false) {
         return (
             <>
+                <form>
+                    <input id={"form"} type={"test"}/>
+                    <input onClick={clicked} type={"submit"}/>
+                </form>
                 <Container>
                     {showPokemonCards(props.allPokemons)}
                 </Container>
@@ -74,6 +99,10 @@ const Pokemon = (props) => {
     } else {
         return (
             <>
+                <form>
+                    <input id={"form"} type={"test"}/>
+                    <input onClick={clicked} type={"submit"}/>
+                </form>
                 <Container>
                     {filterCards(props.filteredPokemons)}
                 </Container>

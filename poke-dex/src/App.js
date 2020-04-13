@@ -4,7 +4,6 @@ import Pages from "./components/Pages";
 import Pokemon from "./components/Pokemon";
 import Navbar from "./components/Navbar";
 import FilterBar from "./components/Filters/FilterBar";
-import InputBar from "./components/InputBar";
 
 function App() {
 
@@ -49,7 +48,7 @@ function App() {
         setFiltersLoad(true);
     };
 
-    const testPages = (amount) => {
+    const changeDisplayAmount = (amount) => {
         setPokemonsPerPage(amount)
     };
 
@@ -58,8 +57,8 @@ function App() {
             <>
                 <Navbar/>
                 <FilterBar updateAPI={updateFilterAPI}/>
-                {/*<InputBar allPokes={allPokemons} pages={testPages}/>*/}
-                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter} pages={testPages}/>
+                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter}
+                         changeDisplay={changeDisplayAmount}/>
                 <Pages
                     allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
                     showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>

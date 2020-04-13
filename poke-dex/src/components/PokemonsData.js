@@ -25,10 +25,13 @@ const PokemonsData = (props) => {
 
     return (
         <>
-            <p className={"pokemon-type-1"}>{pokemonType}</p>
-            <p className={"pokemon-type-2"}>{pokemonType2}</p>
-            <p>Height: {pokemonHeight}</p>
-            <p>Weight: {pokemonWeight}</p>
+            <div >
+                <p className={"pokemon-type-1"}>{pokemonType}</p>
+                <p className={"pokemon-type-2"}>{pokemonType2}</p>
+                <p>Height: {pokemonHeight}</p>
+                <p>Weight: {pokemonWeight}</p>
+            </div>
+
         </>
     )
 };

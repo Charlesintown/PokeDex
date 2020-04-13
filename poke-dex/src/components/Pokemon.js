@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import PokemonsData from './PokemonsData';
 import {Card, Col, Row, Container, CardImg} from 'react-bootstrap';
 import PokemonImage from "./PokemonImage";
+import SearchInput from "./Filters/SearchInput";
+import axios from "axios";
 
 const Pokemon = (props) => {
 
@@ -20,21 +22,23 @@ const Pokemon = (props) => {
     const showPokemonCards = (pokemonList) => {
 
         return (
-            <div className={"pokemon-list"}>
-                {pokemonList.map(pokemon => {
-                    return (
-                        <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon)}>
-                            <PokemonImage pokeURL={pokemon.url}/>
-                            <Card.Body>
-                                <Card.Title>
-                                    {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
-                                </Card.Title>
-                            </Card.Body>
-                            <PokemonsData pokeURL={pokemon.url} />
-                        </Card>
-                    )
-                })}
-            </div>
+            <>
+                <div className={"pokemon-list"}>
+                    {pokemonList.map(pokemon => {
+                        return (
+                            <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon)}>
+                                <PokemonImage pokeURL={pokemon.url}/>
+                                <Card.Body>
+                                    <Card.Title>
+                                        {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
+                                    </Card.Title>
+                                </Card.Body>
+                                <PokemonsData pokeURL={pokemon.url} />
+                            </Card>
+                        )
+                    })}
+                </div>
+            </>
         )
     }
 
@@ -66,6 +70,7 @@ const Pokemon = (props) => {
         return (
             <>
                 <Container>
+                    <SearchInput changeDisplay={props.changeDisplay} />
                     {showPokemonCards(props.allPokemons)}
                 </Container>
 
@@ -75,6 +80,7 @@ const Pokemon = (props) => {
         return (
             <>
                 <Container>
+                    <SearchInput changeDisplay={props.changeDisplay}/>
                     {filterCards(props.filteredPokemons)}
                 </Container>
 

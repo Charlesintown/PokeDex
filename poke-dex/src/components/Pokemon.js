@@ -5,6 +5,9 @@ import PokemonImage from "./PokemonImage";
 
 const Pokemon = (props) => {
 
+    String.prototype.capitalize = function Cap() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
 
     const pokemonIDGenerator = (pokemon) => {
         if (pokemon.url.length < 37) {
@@ -24,7 +27,7 @@ const Pokemon = (props) => {
                             <PokemonImage pokeURL={pokemon.url}/>
                             <Card.Body>
                                 <Card.Title>
-                                    {pokemon.name} #{pokemonIDGenerator(pokemon)}
+                                    {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
                                 </Card.Title>
                             </Card.Body>
                             <PokemonsData pokeURL={pokemon.url} />
@@ -35,7 +38,7 @@ const Pokemon = (props) => {
         )
     }
 
-    const test = (pokemonList) => {
+    const filterCards = (pokemonList) => {
         return (
             <div className={"pokemon-list"}>
                 {pokemonList.map(pokemon => {
@@ -44,7 +47,7 @@ const Pokemon = (props) => {
                             <PokemonImage pokeURL={pokemon.pokemon.url}/>
                             <Card.Body>
                                 <Card.Title>
-                                    {pokemon.pokemon.name} #{pokemonIDGenerator(pokemon.pokemon)}
+                                    {(pokemon.pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon.pokemon)}
                                 </Card.Title>
                             </Card.Body>
                             <PokemonsData pokeURL={pokemon.pokemon.url} />
@@ -54,8 +57,6 @@ const Pokemon = (props) => {
             </div>
         )
     };
-
-
 
     useEffect(() => {
 
@@ -74,7 +75,7 @@ const Pokemon = (props) => {
         return (
             <>
                 <Container>
-                    {test(props.filteredPokemons)}
+                    {filterCards(props.filteredPokemons)}
                 </Container>
 
             </>

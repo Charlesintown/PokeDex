@@ -3,7 +3,8 @@ import axios from 'axios';
 import Pages from "./components/Pages";
 import Pokemon from "./components/Pokemon";
 import Navbar from "./components/Navbar";
-import FiltersBar from "./components/FiltersBar";
+import FiltersButtons from "./components/Filters/FiltersButtons";
+import FilterBar from "./components/Filters/FilterBar";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     const[pokeAPI, setPokeAPI] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
     const[filtersLoad, setFiltersLoad] = useState(false);
     const[filteredPokemons, setFiltersPokemons] = useState([])
+
 
     useEffect(() => {
         axios.get(pokeAPI)
@@ -29,29 +31,30 @@ function App() {
             .catch(err => {
                 console.log(err);
             });
-    }, [filtersLoad]);
+    }, [filtersLoad, pokeAPI]);
 
 
     const indexOfLast = currentPage * pokemonsPerPage;
     const indexOfFirst = indexOfLast - pokemonsPerPage;
     const currentPokemons = allPokemons.slice(indexOfFirst, indexOfLast);
+    const currentFilter = filteredPokemons.slice(indexOfFirst, indexOfLast);
 
     const showCurrentPokemons = (pageNumber) => {
         setCurrentPage(prevState => pageNumber);
         setActivePage(prevState => pageNumber);
     };
 
-    const fire = () => {
-        setPokeAPI(`https://pokeapi.co/api/v2/type/10/`)
-        setFiltersLoad(true)
+    const updateFilterAPI = (newAPI) =>{
+        setPokeAPI(newAPI);
+        setFiltersLoad(true);
     };
 
 
         return (
             <>
                 <Navbar/>
-                <FiltersBar fire={fire}/>
-                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={filteredPokemons}/>
+                <FilterBar updateAPI={updateFilterAPI}/>
+                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter}/>
                 <Pages
                     allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
                     showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>

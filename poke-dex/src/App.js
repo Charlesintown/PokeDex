@@ -3,7 +3,8 @@ import axios from 'axios';
 import Pages from "./components/Pages";
 import Pokemon from "./components/Pokemon";
 import Navbar from "./components/Navbar";
-import FiltersBar from "./components/FiltersBar";
+import FiltersButtons from "./components/Filters/FiltersButtons";
+import FilterBar from "./components/Filters/FilterBar";
 
 function App() {
 
@@ -11,41 +12,54 @@ function App() {
     const[currentPage, setCurrentPage] = useState(1);
     const[pokemonsPerPage, setPokemonsPerPage] = useState(25);
     const[activePage, setActivePage] = useState(1);
-    const[pokesURL, setPokesURL] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
-    const[test, setTest] = useState(false);
+    const[pokeAPI, setPokeAPI] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=649`);
+    const[filtersLoad, setFiltersLoad] = useState(false);
+    const[filteredPokemons, setFiltersPokemons] = useState([])
+
 
     useEffect(() => {
-        axios.get(pokesURL)
+        axios.get(pokeAPI)
             .then(res => {
+                if(filtersLoad === false) {
                     console.log(res.data.results);
                     setAllPokemons(res.data.results);
+                } else {
+                    console.log(res.data.pokemon);
+                    setFiltersPokemons(res.data.pokemon)
+                }
             })
             .catch(err => {
                 console.log(err);
             });
-    }, []);
+    }, [filtersLoad, pokeAPI]);
 
 
     const indexOfLast = currentPage * pokemonsPerPage;
     const indexOfFirst = indexOfLast - pokemonsPerPage;
     const currentPokemons = allPokemons.slice(indexOfFirst, indexOfLast);
+    const currentFilter = filteredPokemons.slice(indexOfFirst, indexOfLast);
 
     const showCurrentPokemons = (pageNumber) => {
         setCurrentPage(prevState => pageNumber);
         setActivePage(prevState => pageNumber);
     };
 
+    const updateFilterAPI = (newAPI) =>{
+        setPokeAPI(newAPI);
+        setFiltersLoad(true);
+    };
 
-      return (
-          <>
-            <Navbar/>
-            <FiltersBar />
-            <Pokemon allPokemons={currentPokemons} test={test}/>
-            <Pages
-                allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage}
-                showPokemons={showCurrentPokemons} activePage={activePage}/>
-          </>
-      );
+
+        return (
+            <>
+                <Navbar/>
+                <FilterBar updateAPI={updateFilterAPI}/>
+                <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter}/>
+                <Pages
+                    allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
+                    showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>
+            </>
+        );
 
 
 }

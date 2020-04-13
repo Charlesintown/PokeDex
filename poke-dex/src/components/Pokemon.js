@@ -5,6 +5,9 @@ import PokemonImage from "./PokemonImage";
 
 const Pokemon = (props) => {
 
+    String.prototype.capitalize = function Cap() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
 
     const pokemonIDGenerator = (pokemon) => {
         if (pokemon.url.length < 37) {
@@ -24,7 +27,7 @@ const Pokemon = (props) => {
                             <PokemonImage pokeURL={pokemon.url}/>
                             <Card.Body>
                                 <Card.Title>
-                                    {pokemon.name} #{pokemonIDGenerator(pokemon)}
+                                    {(pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon)}
                                 </Card.Title>
                             </Card.Body>
                             <PokemonsData pokeURL={pokemon.url} />
@@ -35,21 +38,51 @@ const Pokemon = (props) => {
         )
     }
 
-
+    const filterCards = (pokemonList) => {
+        return (
+            <div className={"pokemon-list"}>
+                {pokemonList.map(pokemon => {
+                    return (
+                        <Card className={"pokemon-card"} key={pokemonIDGenerator(pokemon.pokemon)}>
+                            <PokemonImage pokeURL={pokemon.pokemon.url}/>
+                            <Card.Body>
+                                <Card.Title>
+                                    {(pokemon.pokemon.name).capitalize()} #{pokemonIDGenerator(pokemon.pokemon)}
+                                </Card.Title>
+                            </Card.Body>
+                            <PokemonsData pokeURL={pokemon.pokemon.url} />
+                        </Card>
+                    )
+                })}
+            </div>
+        )
+    };
 
     useEffect(() => {
 
     }, [])
 
+    if(props.filterLoad === false) {
+        return (
+            <>
+                <Container>
+                    {showPokemonCards(props.allPokemons)}
+                </Container>
 
-    return (
-        <>
-            <Container>
-                {showPokemonCards(props.allPokemons)}
-            </Container>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Container>
+                    {filterCards(props.filteredPokemons)}
+                </Container>
 
-        </>
-    )
+            </>
+        )
+    }
+
+
 };
 
 export default Pokemon;

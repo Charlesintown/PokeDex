@@ -1,4 +1,5 @@
 import React from "react";
+import {Container, Row, Col} from "react-bootstrap";
 
 const SearchInput = (props) => {
 
@@ -11,6 +12,7 @@ const SearchInput = (props) => {
 
         }
         textInput.value = "";
+        textInput.setAttribute("placeholder", "Click X to clear ->");
     };
 
     const searchForPokes = (e) => {
@@ -21,10 +23,20 @@ const SearchInput = (props) => {
 
     return (
         <>
-            <form>
-                <input id={"search-pokes"} type={"test"}/>
-                <input onClick={searchForPokes} type={"submit"}/>
-            </form>
+            <Row className={"form-row"}>
+                <Col>
+                    <p>Which <span className={"poke-span"}>POKEMON</span> are you looking for?</p>
+                    <p className={"form-info"}>IT MAY TAKES FEW SECONDS..</p>
+                    <form  className={"search-input"}>
+                        <input id={"search-pokes"} type={"test"}/>
+                        <button className={"input-btn element-btn"} onClick={searchForPokes} type={"submit"}>
+                            <i className="fas fa-search"></i>
+                        </button>
+                        <button className={"input-btn element-btn"}><i className="fas fa-times"></i></button>
+                    </form>
+                </Col>
+            </Row>
+
         </>
     )
 };

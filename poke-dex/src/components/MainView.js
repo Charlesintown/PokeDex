@@ -4,6 +4,7 @@ import Pages from "./PokemonList/Pages";
 import Pokemon from "./PokemonList/Pokemon";
 import FilterBar from "../components/Filters/FilterBar";
 import Navbar from "./Navbar";
+import {Container} from "react-bootstrap";
 
 function MainView() {
 
@@ -55,12 +56,18 @@ function MainView() {
 
     return (
         <>
-            <FilterBar updateAPI={updateFilterAPI}/>
-            <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter}
-                     changeDisplay={changeDisplayAmount}/>
-            <Pages
-                allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
-                showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>
+            <Container>
+                <div className={"main-content"}>
+                    <FilterBar updateAPI={updateFilterAPI}/>
+                    <Pokemon allPokemons={currentPokemons} filterLoad={filtersLoad} filteredPokemons={currentFilter}
+                             changeDisplay={changeDisplayAmount}/>
+                    <Pages
+                        allPokemons={allPokemons} pokemonsPerPage={pokemonsPerPage} filterLoad={filtersLoad}
+                        showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>
+                </div>
+            </Container>
+
+
         </>
     );
 

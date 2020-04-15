@@ -1,22 +1,229 @@
 @import '../settings/colors';
 
 .filter-bar {
-  background-color: black;
+  text-align: center;
+  border: solid white 2px;
+  background-color: #474747;
+  border-radius: 20px;
   opacity: 80%;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  box-shadow: 0 0 15px black;
 }
+
+.btn-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 560px) {
+    p {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+
 
 .element-btn {
-  background-color: black;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   color: white;
-  border: none;
-  padding: 0.5rem 0;
-  width: 100%;
   font-weight: bold;
   font-size: 1.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  padding-top: 0.5rem;
+  border: 2px white solid;
   margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  cursor: pointer;
+  @media (max-width: 560px) {
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding-top: 0.3rem;
+
+  }
 }
 
-.element-btn:hover {
-  text-shadow: 0 0 20px $headShadow;
+.fire-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $fire;
+    text-shadow: 0 0 20px  $fire;
+  }
+  p {
+    text-shadow: 0 0 20px $fire;
+  }
 }
+
+.poison-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $posion;
+    text-shadow: 0 0 20px  $posion;
+  }
+  p {
+    text-shadow: 0 0 20px $posion;
+  }
+}
+.water-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $water;
+    text-shadow: 0 0 20px  $water;
+  }
+  p {
+    text-shadow: 0 0 20px $water;
+  }
+}
+
+.grass-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $grass;
+    text-shadow: 0 0 20px  $grass;
+  }
+  p {
+    text-shadow: 0 0 20px $grass;
+  }
+}
+
+.electric-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $electric;
+    text-shadow: 0 0 20px  $electric;
+  }
+  p {
+    text-shadow: 0 0 20px $electric;
+  }
+}
+
+.normal-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $normal;
+    text-shadow: 0 0 20px  $normal;
+  }
+  p {
+    text-shadow: 0 0 20px $normal;
+  }
+}
+
+.bug-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $bug;
+    text-shadow: 0 0 20px  $bug;
+  }
+  p {
+    text-shadow: 0 0 20px $bug;
+  }
+}
+
+.dark-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $dark;
+    text-shadow: 0 0 20px  $dark;
+  }
+  p {
+    text-shadow: 0 0 20px $dark;
+  }
+}
+
+.dragon-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $dragon;
+    text-shadow: 0 0 20px  $dragon;
+  }
+  p {
+    text-shadow: 0 0 20px $dragon;
+  }
+}
+
+.ghost-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $ghost;
+    text-shadow: 0 0 20px  $ghost;
+  }
+  p {
+    text-shadow: 0 0 20px $ghost;
+  }
+}
+
+.rock-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $rock;
+    text-shadow: 0 0 20px  $rock;
+  }
+  p {
+    text-shadow: 0 0 20px $rock;
+  }
+}
+
+.psychic-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $psychic;
+    text-shadow: 0 0 20px  $psychic;
+  }
+  p {
+    text-shadow: 0 0 20px $psychic;
+  }
+}
+
+.all-btn {
+  text-shadow: 0 0 13px  $headShadow;
+  p {
+    text-shadow: 0 0 13px $headShadow;
+
+  }
+}
+
+.all-btn:hover{
+  .element-btn {
+    box-shadow: 0 0 20px $headShadow;
+    text-shadow: 0 0 20px  $headShadow;
+  }
+  p {
+    text-shadow: 0 0 20px $headShadow;
+  }
+}
+
+.form-row {
+  text-align: center;
+  padding: 1rem;
+  background-color: #474747;
+  opacity: 80%;
+  border: solid white 2px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px black;
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+  p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  .form-info {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 560px) {
+    p {
+      font-size: 1rem;
+    }
+    .form-info {
+      font-size: 0.6rem;
+    }
+  }
+}
+.input-btn {
+  margin-left: 1rem;
+  padding-top: 0;
+}
+
+.input-btn:hover {
+  text-shadow: 0 0 20px $headShadow;
+  box-shadow: 0 0 20px $headShadow;
+
+}
+
+.poke-span {
+  text-shadow: 0 0 15px $headShadow;
+
+}
+

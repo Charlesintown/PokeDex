@@ -4,7 +4,8 @@
 @import './components/navbar';
 @import '/components/welcomePage';
 @import '/components/filterbar';
-
+@import '/components/mainView';
+@import '/components/pagination';
 
 .pagination {
   li {
@@ -16,9 +17,5 @@
 }
 
 
-.pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 

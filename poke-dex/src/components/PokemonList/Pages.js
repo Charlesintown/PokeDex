@@ -10,7 +10,7 @@ const Pages = (props) => {
         if(window.innerWidth > 561) {
             setPageDispaly(7);
         } else {
-            setPageDispaly(4)
+            setPageDispaly(3)
         }
     }, [])
 

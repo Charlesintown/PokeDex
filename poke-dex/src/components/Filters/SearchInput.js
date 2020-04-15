@@ -23,7 +23,7 @@ const SearchInput = (props) => {
         const spinner = document.querySelector(".loader");
         spinner.style.display = "block";
         props.changeDisplay(251);
-        setTimeout(showFoundPokes, 1500);
+        setTimeout(showFoundPokes, 2500);
     };
 
     const resetFilter = () => {

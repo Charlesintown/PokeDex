@@ -1,3 +1,87 @@
 .hideon {
   display: none;
 }
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.pokemon-card {
+  //background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  margin-bottom: 0.6rem;
+  border: solid white 2px;
+  margin-right: auto;
+  width: 18%;
+  border-radius: 20px;
+  box-shadow: 0 0 15px black;
+  text-align: center;
+  position: relative;
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #474747;
+    text-shadow: 0 0 6px white;
+    letter-spacing: 2px;
+  }
+  @media (max-width: 560px) {
+    width: 30%;
+    .card-title {
+      font-size: 0.5rem;
+    }
+  }
+}
+
+.card-data {
+  display: none;
+  position: absolute;
+}
+
+.pokemon-card:hover {
+  opacity: 1;
+  &:before {
+    content: "";
+    background-color: black;
+    opacity: 80%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  .card-img {
+    transition: 0.5s;
+    opacity: 20%;
+
+  }
+  .card-title {
+    transition: 0.5s;
+    opacity: 20%;
+
+  }
+  .card-data {
+    display: block;
+    transition: 2s;
+    height: 100%;
+    z-index: 2;
+    margin: 15% 30%;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px white;
+    opacity: 100%;
+    @media (max-width: 560px) {
+      font-size: 0.5rem;
+    }
+
+  }
+}
+
+.pokemon-type-1, .pokemon-type-2 {
+  font-size: 1.1rem;
+}
+
+
+

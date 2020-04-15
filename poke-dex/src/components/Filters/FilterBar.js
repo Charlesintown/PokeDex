@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import FiltersButtons from "./FiltersButtons";
 
 const FilterBar = (props) => {
 
+    //funkcje zmieniające state API pod filtrowanie wyników
     const showFire = () => {
         const tempAPI = `https://pokeapi.co/api/v2/type/10/`;
         props.updateAPI(tempAPI);
@@ -80,11 +81,14 @@ const FilterBar = (props) => {
     };
 
     return (
-        <FiltersButtons
-            fire={showFire} poison={showPoison} water={showWater} grass={showGrass} reset={resetFitlers}
-            electric={showElectric} normal={showNormal} dark={showDark} dragon={showDragon} psychic={showPsychic}
-            ghost={showGhost} rock={showRock} bug={showBug}
-        />
+        <>
+            <FiltersButtons
+                fire={showFire} poison={showPoison} water={showWater} grass={showGrass} reset={resetFitlers}
+                electric={showElectric} normal={showNormal} dark={showDark} dragon={showDragon} psychic={showPsychic}
+                ghost={showGhost} rock={showRock} bug={showBug}
+            />
+        </>
+
     )
 };
 

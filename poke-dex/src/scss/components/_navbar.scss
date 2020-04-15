@@ -1,0 +1,50 @@
+@import '../settings/colors';
+
+.nav-bar {
+  width: 100%;
+  background-color: black;
+  opacity: 80%;
+  box-shadow: 0 0 5px black;
+
+}
+
+.nav-row{
+  height: 15vh;
+  margin-bottom: 1rem;
+  box-shadow: $headShadow;
+  @media (max-width: 560px) {
+    height: 15vh;
+  }
+
+  .header-container {
+    text-align: center;
+    color: white;
+    margin-top: 1.5rem;
+    @media (max-width: 560px) {
+      margin-top: 0.8rem;
+    }
+    p {
+      text-shadow: 0 0 12px $headShadow;
+    }
+    .nav-head {
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 12px $headShadow;
+      text-decoration: none;
+      color: white;
+    }
+    @media (max-width: 560px) {
+      .nav-head {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .header-container:hover {
+    p, .nav-head {
+      text-shadow: 0 0 18px $headShadow;
+    ;
+    }
+  }
+
+}

@@ -1,17 +1,9 @@
 @import './settings/reset';
 @import './settings/fonts';
 @import './components/pokemonCards';
-
-.pagination {
-  li {
-    width: 3rem;
-    a {
-
-    }
-  }
-}
-
-.pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-}
+@import './components/navbar';
+@import '/components/welcomePage';
+@import '/components/filterbar';
+@import '/components/pagination';
+@import '/components/spinner';
+@import '/components/pagination';

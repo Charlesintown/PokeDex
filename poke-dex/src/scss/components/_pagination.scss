@@ -1,0 +1,53 @@
+@import '../settings/colors';
+
+.pagination {
+  li {
+    width: 3rem;
+    a {
+
+    }
+  }
+}
+
+.pagination-row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  ul {
+    .active {
+      background-color: black;
+      text-shadow: 0 0 20px $headShadow;
+      box-shadow: 0 0 20 $headShadow;
+    }
+  }
+
+  li {
+    background-color: $altbg;
+    padding: 1rem 2rem;
+    opacity: 80%;
+    border: solid white 1px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    a {
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      text-shadow: 0 0 12px $headShadow;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .pagination-row {
+    li {
+      padding: 0.5rem 0.8rem;
+      a {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

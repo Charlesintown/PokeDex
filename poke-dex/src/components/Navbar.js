@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Col} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
 
@@ -11,7 +12,7 @@ const Navbar = () => {
                     <Row className={"nav-row"}>
                         <Col>
                             <div className={"header-container"}>
-                                <h1 className={"nav-head"}>POKEDEX</h1>
+                                <Link to={'/'} className={"nav-head"}>POKEDEX</Link>
                                 <p>by CharlesInTown</p>
                             </div>
                         </Col>

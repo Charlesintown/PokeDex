@@ -21,6 +21,11 @@ const SearchInput = (props) => {
         setTimeout(showFoundPokes, 1500);
     };
 
+    const resetFilter = () => {
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    }
+
     return (
         <>
             <Row className={"form-row"}>
@@ -32,7 +37,7 @@ const SearchInput = (props) => {
                         <button className={"input-btn element-btn"} onClick={searchForPokes} type={"submit"}>
                             <i className="fas fa-search"></i>
                         </button>
-                        <button className={"input-btn element-btn"}><i className="fas fa-times"></i></button>
+                        <button onClick={resetFilter} className={"input-btn element-btn"}><i className="fas fa-times"></i></button>
                     </form>
                 </Col>
             </Row>

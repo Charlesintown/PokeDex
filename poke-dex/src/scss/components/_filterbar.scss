@@ -8,8 +8,10 @@
   opacity: 80%;
   color: white;
   font-weight: bold;
-  padding: 1rem;
+  padding: 0;
   box-shadow: 0 0 15px black;
+
+
 }
 
 .btn-col {
@@ -17,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
   @media (max-width: 560px) {
     p {
       font-size: 0.7rem;
@@ -43,6 +46,8 @@
     height: 2.5rem;
     width: 2.5rem;
     padding-top: 0.3rem;
+    margin-left: auto;
+    margin-right: auto;
 
   }
 }
@@ -203,6 +208,9 @@
     font-size: 0.8rem;
   }
   @media (max-width: 560px) {
+    #search-pokes {
+      width: 50%;
+    }
     p {
       font-size: 1rem;
     }
@@ -227,3 +235,27 @@
 
 }
 
+.all-filters {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  @media (max-width: 560px) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  @media (max-width: 560px) {
+    font-size: 1.1rem;
+  }
+}
+
+.dropdown-btn:focus {
+  outline: none;
+}

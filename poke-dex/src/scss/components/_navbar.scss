@@ -20,7 +20,7 @@
   .header-container {
     text-align: center;
     color: white;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     @media (max-width: 560px) {
       margin-top: 0.8rem;
     }
@@ -34,6 +34,8 @@
       font-size: 4rem;
       font-weight: bold;
       text-shadow: 0 0 12px $headShadow;
+      text-decoration: none;
+      color: white;
     }
     @media (max-width: 560px) {
       .nav-head {

@@ -11,6 +11,4 @@ __https://charlesintown-pokedex.netlify.app/#/__
 * React.js,
 * Axios,
 * React Bootstrap,
-* Reacj-js-pagination,
-* React-router,
 * SCSS/SASS

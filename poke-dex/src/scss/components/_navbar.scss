@@ -3,9 +3,8 @@
 .nav-bar {
   width: 100%;
   background-color: black;
-  opacity: 80%;
+  opacity: 0.8;
   box-shadow: 0 0 5px black;
-
 }
 
 .nav-row{
@@ -19,7 +18,7 @@
   .header-container {
     text-align: center;
     color: white;
-    margin-top: 1.5rem;
+    margin-top: 0.9rem;
     @media (max-width: 560px) {
       margin-top: 0.8rem;
     }

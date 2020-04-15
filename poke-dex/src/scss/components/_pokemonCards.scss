@@ -45,7 +45,7 @@
   &:before {
     content: "";
     background-color: black;
-    opacity: 80%;
+    opacity: 0.8;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -53,12 +53,12 @@
   }
   .card-img {
     transition: 0.5s;
-    opacity: 20%;
+    opacity: 0.2;
 
   }
   .card-title {
     transition: 0.5s;
-    opacity: 20%;
+    opacity: 0.2;
 
   }
   .card-data {
@@ -71,7 +71,7 @@
     font-size: 1rem;
     font-weight: bold;
     text-shadow: 0 0 15px white;
-    opacity: 100%;
+    opacity: 1;
     @media (max-width: 560px) {
       font-size: 0.5rem;
     }

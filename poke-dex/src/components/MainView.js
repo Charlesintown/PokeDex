@@ -3,7 +3,6 @@ import axios from 'axios';
 import Pages from "./PokemonList/Pages";
 import Pokemon from "./PokemonList/Pokemon";
 import FilterBar from "../components/Filters/FilterBar";
-import Navbar from "./Navbar";
 import {Container} from "react-bootstrap";
 
 function MainView() {
@@ -16,7 +15,7 @@ function MainView() {
     const[filtersLoad, setFiltersLoad] = useState(false);
     const[filteredPokemons, setFiltersPokemons] = useState([])
 
-
+    //główna funkcja pobierająca dane
     useEffect(() => {
         axios.get(pokeAPI)
             .then(res => {
@@ -39,20 +38,22 @@ function MainView() {
     const currentPokemons = allPokemons.slice(indexOfFirst, indexOfLast);
     const currentFilter = filteredPokemons.slice(indexOfFirst, indexOfLast);
 
+    //funckja do wyświetlania ustalonej licby pokemonów na stronie
     const showCurrentPokemons = (pageNumber) => {
         setCurrentPage(prevState => pageNumber);
         setActivePage(prevState => pageNumber);
     };
 
+    //aktualizowanie adresu API na podstawie wybranego filtru
     const updateFilterAPI = (newAPI) =>{
         setPokeAPI(newAPI);
         setFiltersLoad(true);
     };
 
+    //funkcja pomocnicza do zmiany ilośći pokemonów na stronie
     const changeDisplayAmount = (amount) => {
         setPokemonsPerPage(amount)
     };
-
 
     return (
         <>
@@ -66,12 +67,8 @@ function MainView() {
                         showPokemons={showCurrentPokemons} activePage={activePage} filteredPokemons={filteredPokemons}/>
                 </div>
             </Container>
-
-
         </>
     );
-
-
 }
 
 export default MainView;

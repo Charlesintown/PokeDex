@@ -4,7 +4,6 @@ import {Container, Row, Col} from "react-bootstrap";
 
 const WelcomePage = () => {
 
-
     return (
         <>
             <Container>

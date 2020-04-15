@@ -2,18 +2,13 @@ import React from 'react';
 import {
     HashRouter,
     Route,
-    Link,
     Switch,
-    NavLink,
 } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import MainView from "./components/MainView";
 import WelcomePage from "./components/WelcomePage";
 
 function App() {
-
-
-
 
         return (
             <HashRouter>
@@ -26,8 +21,6 @@ function App() {
                 </>
             </HashRouter>
         );
-
-
 }
 
 export default App;

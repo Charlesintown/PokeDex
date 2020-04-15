@@ -1,5 +1,14 @@
 @import '../settings/colors';
 
+.pagination {
+  li {
+    width: 3rem;
+    a {
+
+    }
+  }
+}
+
 .pagination-row {
   text-align: center;
   display: flex;
@@ -12,6 +21,7 @@
       box-shadow: 0 0 20 $headShadow;
     }
   }
+
   li {
     background-color: $altbg;
     padding: 1rem 2rem;
@@ -27,9 +37,7 @@
       text-decoration: none;
       text-shadow: 0 0 12px $headShadow;
       font-weight: bold;
-
     }
-
   }
 }
 
@@ -42,5 +50,4 @@
       }
     }
   }
-
 }

@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Container, Row, Col} from "react-bootstrap";
 
 const FiltersButtons = ({fire, poison, water, reset, grass, electric, normal, bug, dark, dragon,
                         ghost, rock, psychic}) => {
 
+    //odebrane funkcje przez props, z przypisanymi dodatkowymi atrybutami
     const elementsListFirst = [[fire, "FIRE", 'fas fa-fire', "fire-btn"], [poison, "POISON", 'fas fa-skull-crossbones', "poison-btn"], [water, "WATER", "fas fa-tint", "water-btn"], [grass, "GRASS", "fas fa-leaf", "grass-btn"], [electric, "ELECTRIC", "fas fa-bolt", "electric-btn"],
                                 [normal, "NORMAL", "fas fa-paw", "normal-btn"]];
 
     const elementsListSecond = [[bug, "BUG", "fas fa-bug", "bug-btn"], [dark, "DARK", "fas fa-moon", "dark-btn"], [dragon, "DRAGON", "fas fa-dragon", "dragon-btn"], [ghost, "GHOST", "fas fa-ghost", "ghost-btn"],
                                 [rock, "ROCK", "fas fa-mountain", "rock-btn"], [psychic, "PSYCHIC", "fas fa-brain", "psychic-btn"]];
 
-
+    //collapse wyświetlający filtry
     const showHideFilters = (e) => {
         e.preventDefault();
         e.target.classList.toggle("active");
@@ -22,6 +23,7 @@ const FiltersButtons = ({fire, poison, water, reset, grass, electric, normal, bu
         }
     };
 
+    //komponent generuje i zwaraca przyciski do filtrowania na podstawie odebranych danych przez props
     return (
         <>
             <Container  className={"filter-bar"}>

@@ -8,6 +8,7 @@ const PokemonsData = (props) => {
     const [pokemonHeight, setPokemonHeight] = useState(0);
     const [pokemonWeight, setPokemonWeight] = useState(0);
 
+    //pobranie danych dodatkowych o pokemonach
     useEffect(() => {
         axios.get(props.pokeURL)
             .then(res => {
@@ -18,7 +19,6 @@ const PokemonsData = (props) => {
                 if(res.data.types.length > 1) {
                     setPokemonType2(res.data.types[1].type.name)
                 }
-
             })
     }, [])
 

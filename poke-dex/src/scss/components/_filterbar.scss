@@ -10,8 +10,6 @@
   font-weight: bold;
   padding: 0;
   box-shadow: 0 0 15px black;
-
-
 }
 
 .btn-col {
@@ -26,8 +24,6 @@
     }
   }
 }
-
-
 
 .element-btn {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
@@ -227,12 +223,10 @@
 .input-btn:hover {
   text-shadow: 0 0 20px $headShadow;
   box-shadow: 0 0 20px $headShadow;
-
 }
 
 .poke-span {
   text-shadow: 0 0 15px $headShadow;
-
 }
 
 .all-filters {
@@ -259,3 +253,4 @@
 .dropdown-btn:focus {
   outline: none;
 }
+

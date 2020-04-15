@@ -8,8 +8,6 @@
   }
 };
 
-
-
 .pokeball {
   background-image: url("../../assets/poke.png");
   background-position: center;
@@ -42,7 +40,7 @@
 
 .link-col:hover {
   .pokeball {
-    transform: rotate(500deg);
+    transform: rotate(720deg);
     transition: 2s;
   }
   a {

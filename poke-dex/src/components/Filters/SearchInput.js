@@ -1,22 +1,27 @@
 import React from "react";
-import {Container, Row, Col} from "react-bootstrap";
+import {Row, Col} from "react-bootstrap";
 
 const SearchInput = (props) => {
 
+    //wyświetlenie kart pokemonów jako output z wyszukiwarki
     const showFoundPokes = () => {
         const titlePokemon = document.querySelectorAll(".card-title");
         const textInput = document.querySelector("#search-pokes");
         for(const el of titlePokemon) {
             if(!(el.innerText).toLowerCase().includes((textInput.value).toLowerCase()))
                 el.parentElement.parentElement.style.display = "none";
-
         }
         textInput.value = "";
         textInput.setAttribute("placeholder", "Click X to clear ->");
+        const spinner = document.querySelector(".loader");
+        spinner.style.display = "none";
     };
 
+    //wywołanie powyższej funkcji
     const searchForPokes = (e) => {
         e.preventDefault();
+        const spinner = document.querySelector(".loader");
+        spinner.style.display = "block";
         props.changeDisplay(251);
         setTimeout(showFoundPokes, 1500);
     };
@@ -41,6 +46,10 @@ const SearchInput = (props) => {
                     </form>
                 </Col>
             </Row>
+            <Row>
+                <div className="loader">Lo</div>
+            </Row>
+
 
         </>
     )

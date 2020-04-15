@@ -1,0 +1,22 @@
+@import '../settings/colors';
+
+.filter-bar {
+  background-color: black;
+  opacity: 80%;
+}
+
+.element-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 0;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.element-btn:hover {
+  text-shadow: 0 0 20px $headShadow;
+}

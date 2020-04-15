@@ -1,0 +1,54 @@
+@import "../settings/colors";
+
+.welcome-page {
+  text-align: center;
+  margin-top: 20vh;
+  @media (max-width: 560px) {
+    margin-top: 8vh;
+  }
+};
+
+
+
+.pokeball {
+  background-image: url("../../assets/poke.png");
+  background-position: center;
+  height: 256px;
+  width: 256px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  transition: 2s;
+  @media (max-width: 560px) {
+
+  }
+}
+
+.link-col {
+  text-align: center;
+  margin-top: 2rem;
+  a {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: black;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    color: white;
+    text-shadow: 0 0 12px #f5eb82;
+    box-shadow: 0 0 5px black;
+
+  }
+}
+
+.link-col:hover {
+  .pokeball {
+    transform: rotate(500deg);
+    transition: 2s;
+  }
+  a {
+    text-shadow: 0 0 20px #f5eb82;
+    box-shadow: 0 0 10px black;
+
+  }
+}
+

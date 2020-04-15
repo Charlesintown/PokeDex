@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PokemonsData from './PokemonsData';
 import {Card, Col, Row, Container, CardImg} from 'react-bootstrap';
 import PokemonImage from "./PokemonImage";
-import SearchInput from "./Filters/SearchInput";
+import SearchInput from "../Filters/SearchInput";
 import axios from "axios";
 
 const Pokemon = (props) => {

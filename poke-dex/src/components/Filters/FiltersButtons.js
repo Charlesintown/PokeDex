@@ -12,12 +12,12 @@ const FiltersButtons = ({fire, poison, water, reset, grass, electric, normal, bu
 
     return (
         <>
-            <Container>
+            <Container  className={"filter-bar"}>
                 <Row>
                     {elementsListFirst.map(pair => {
                         return (
                             <Col>
-                                <button onClick={pair[0]}>{pair[1]}</button>
+                                <button className={"element-btn"} onClick={pair[0]}>{pair[1]}</button>
                             </Col>
                         )
                     })}
@@ -26,7 +26,7 @@ const FiltersButtons = ({fire, poison, water, reset, grass, electric, normal, bu
                     {elementsListSecond.map(pair => {
                         return (
                             <Col>
-                                <button onClick={pair[0]}>{pair[1]}</button>
+                                <button className={"element-btn"} onClick={pair[0]}>{pair[1]}</button>
                             </Col>
                         )
                     })}

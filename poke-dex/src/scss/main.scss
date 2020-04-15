@@ -1,6 +1,10 @@
 @import './settings/reset';
 @import './settings/fonts';
 @import './components/pokemonCards';
+@import './components/navbar';
+@import '/components/welcomePage';
+@import '/components/filterbar';
+
 
 .pagination {
   li {
@@ -11,7 +15,10 @@
   }
 }
 
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
 }
+
+

@@ -80,11 +80,14 @@ const FilterBar = (props) => {
     };
 
     return (
-        <FiltersButtons
-            fire={showFire} poison={showPoison} water={showWater} grass={showGrass} reset={resetFitlers}
-            electric={showElectric} normal={showNormal} dark={showDark} dragon={showDragon} psychic={showPsychic}
-            ghost={showGhost} rock={showRock} bug={showBug}
-        />
+        <>
+            <FiltersButtons
+                fire={showFire} poison={showPoison} water={showWater} grass={showGrass} reset={resetFitlers}
+                electric={showElectric} normal={showNormal} dark={showDark} dragon={showDragon} psychic={showPsychic}
+                ghost={showGhost} rock={showRock} bug={showBug}
+            />
+        </>
+
     )
 };
 

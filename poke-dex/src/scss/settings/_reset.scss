@@ -4,3 +4,16 @@
   box-sizing: border-box;
   font-family: 'Oswald', sans-serif;
 }
+
+body {
+  height: 100%;
+  background-image: url("../../assets/pika(2).png");
+  //background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+};
+
+.container {
+  max-width: 970px;
+}
